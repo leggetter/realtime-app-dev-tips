@@ -1,0 +1,32 @@
+{
+  "name": "realtime-app-dev-tips",
+  "version": "0.1.0",
+  "description": "Slide deck for Tools, Tips and Techniques for Developing Real-time Apps",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-image-resize": "^0.6.0",
+    "gulp-imagemin": "^2.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leggetter/realtime-app-dev-tips.git"
+  },
+  "keywords": [
+    "slides",
+    "real-time",
+    "tips",
+    "tricks",
+    "tools"
+  ],
+  "author": "Pusher <support@pusher.com> (https://pusher.com)",
+  "license": "Creative Commons Attribution-ShareAlike 3.0",
+  "bugs": {
+    "url": "https://github.com/leggetter/realtime-app-dev-tips/issues"
+  },
+  "homepage": "https://github.com/leggetter/realtime-app-dev-tips"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "window.request",
+  "version": "0.1.1",
+  "authors": [
+    "leggetter <phil@leggetter.co.uk>"
+  ],
+  "description": "A brain polyfill that aliases window.fetch onto window.request.",
+  "main": "dist/request.js",
+  "keywords": [
+    "fetch",
+    "request",
+    "xhr"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/leggetter/window.request",
+  "ignore": [
+    "**/*",
+    "!/dist/*",
+    "!LICENSE.md",
+    "!README.md", 
+    "!bower.json",
+    "!CHANGELOG.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leggetter/window.request.git"
+  },
+  "devDependencies": {
+    "fetch": "~0.7.0"
+  }
+}

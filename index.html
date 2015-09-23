@@ -79,11 +79,11 @@
         width: 650px;
       }
       
-      #twitter_id {
+      .twitter_id {
         position: fixed;
         bottom: 7%;
-        right: 8%;
-        font-size: 1.2em;
+        right: 20px;
+        font-size: 0.6em;
         color: white;
         z-index: 100000;
       }
@@ -146,17 +146,19 @@
       }
       
       .bg-white {
-        color: black;
+        /*color: black;*/
+      }
+      
+      .remark-slide .bg-video video {
+        height: 100%;
       }
     </style>
   </head>
   <body>
-    
-    <span id="twitter_id">@leggetter</span>
 
-    <script src="bower_components/remark/out/remark.min.js" type="text/javascript">
-    </script>
-    <script type="text/javascript">
+    <script src="bower_components/remark/out/remark.min.js"></script>
+    <script src="bower_components/window.request/dist/request.js"></script>
+    <script>
       var slideshow = remark.create({
         sourceUrl: 'slides.md',
         highlightLanguage: 'remark',
@@ -164,6 +166,52 @@
           scroll: false
         },
         ratio: "16:9"
+      });
+      
+      function getSlideEl(slide) {
+        var allSlides = document.querySelectorAll('.remark-slide');
+        var currentIndex = slide.getSlideIndex();
+        return allSlides[currentIndex];
+      }
+      
+      function checkForVideoToPlay(slide, slideEl) {
+        var playVideo = slide.properties.play_video;
+        if(playVideo !== undefined) {
+          var vidEl;
+          if(playVideo) {
+            vidEl = document.querySelector(playVideo);
+          }
+          else {
+            vidEl = slideEl.querySelector('video');
+          }
+          if(vidEl.getAttribute('playing') !== 'true') {
+            vidEl.play();
+            vidEl.getAttribute('playing', 'true');
+          }
+        }
+      }
+      
+      function checkForDataContents(slide, slideEl) {
+        var dataContentsEl = slideEl.querySelector('*[data-contents]');
+        if(dataContentsEl) {
+          var fileUrl = dataContentsEl.getAttribute('data-contents');
+          request(fileUrl).then(function(response) {
+            return response.text()
+          }).then(function(text) {
+            dataContentsEl.innerHTML = remark.highlighter.engine.highlightAuto(text).value;
+            dataContentsEl.removeAttribute('data-contents');
+          }).catch(function(ex) {
+            console.log('failed to get ' + fileUrl, ex)
+          })
+        }
+      }
+      
+      slideshow.on('afterShowSlide', function (slide) {
+        var slideEl = getSlideEl(slide);
+        
+        checkForVideoToPlay(slide, slideEl);
+        
+        checkForDataContents(slide, slideEl)
       });
     </script>
 

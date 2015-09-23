@@ -3,12 +3,16 @@ name: dblue
 class: bg-dark-blue, center, middle
 layout: true
 
+<span class="twitter_id">@leggetter</span>
+
 ---
 
 name: green
 
 class: green-template, center, middle
 layout: true
+
+<span class="twitter_id">@leggetter</span>
 
 ---
 
@@ -17,13 +21,14 @@ layout: true
 
 class: bg-light, center, middle
 
+<span class="twitter_id">@leggetter</span>
+
 ---
 
 template: lblue
 class: title
 
-# Tools, Tips and Techniques
-# for Developing Real-time Apps
+# Tools, Tips and Techniques<br />for <span style="text-decoration: underline;">Developing</span> Real-time Apps
 
 * <span class="speaker">Phil @leggetter</span>
 * <span class="speaker-job-title">Head of Developer Relations</span>
@@ -44,17 +49,21 @@ class: fixed-width-list
 ## What we'll cover
 
 1. Why Real-Time?
-2. ...
+2. Tools, Tips & Tricks
 
----
+* Data source <-- HERE
+* App server <-- HERE
+* Real-time framework <-- HERE
+* Client app
+  * Network <-- HERE
+  * Library/App Service <-- HERE
+  * App logic <-- and HERE
+  * UI <-- not HERE
 
-class: fixed-width-list
+???
 
-## What we won't cover
-
-UI rendering considerations
-
-There are lots of great resources on this from browser vendors
+* Firstly, apps don't have to have a UI
+* Even so, if you are interested in UI considerations then there are lots of great resources on this from browser and mobile vendors.
 
 ---
 
@@ -164,6 +173,9 @@ background-image: url(./img/lunar-landing.png)
 
 ---
 
+background-image: url(./img/robot-door-fail.gif)
+class: trans-h bottom
+
 # IoT
 
 ---
@@ -199,9 +211,14 @@ class: h1-big
 * Real-time framework
 * Client app
 
+???
+
+Whilst there's not one true anantomy for a real-time application the majorify of these applications consist of sources of data, maybe from database or 3rd party APIs, one or more applications servers glue all other components together, a real-time framework to deal with your real-time data delivery and functionality, and clients that interact with the real-time framework, and potentially the application server.
+
 ---
 
-class: h1-big bg-pink
+template: dblue
+class: h1-big
 
 # Where does real-time data come from?
 
@@ -211,6 +228,23 @@ class: h1-big bg-pink
 * App server
 * Real-time framework
 * Client app
+
+???
+
+Other systems that ultimately interact with with your application server. Databases, message queues, 3rd party services and anything that interacts with web endpoints that your application server exposes.
+
+---
+
+* Data source
+* App server <- Not Here
+* Real-time framework
+* Client app
+
+???
+
+This is open for debate.
+
+But generally, the application server won't be the source of the real-time data - the real-time events. But it will be the organ within your living breathing real-time system that orchestrates the dataflow between the components.
 
 ---
 
@@ -223,9 +257,10 @@ class: h1-big bg-pink
 
 Your real-time framework is all about real-time data.
 * It handles incoming and outgoing data.
+* e.g. connections, subscriptions to data, data synchronisation events, over-the-wire method and function calls
+* Use case specific events e.g. user presence events (online/offline) or events for chat functionality
 * It will also likely provide access to a number of events specific
 to the functionality it offers
-* e.g. connections, subscriptions, method and function calls, user presence events (online/offline) and so on.
 
 ---
 
@@ -236,11 +271,17 @@ to the functionality it offers
 
 ???
 
+Each interaction with the application from the user is a real-time event with associated real-time data. Which of those events is important and should be acted upon depends on your application requirements.
+
 ---
 
-class: h1-big bg-pink
+class: bg-pink tip
 
-## When designing & building real-time apps, always keep one eye on the client.
+## When designing & building real-time apps, always think about how the **decisions** you're making - **anywhere** in your architecture - will **impact** the **client app**.
+
+???
+
+Anywhere in your real-time application architecture.
 
 ---
 
@@ -251,30 +292,38 @@ class: h1-big bg-pink
 
 Tools, Tips & Tricks - from left to right
 
----
-
-# Data Sources
-
 ???
 
-When building real-time applications you quite frequently get data from 3rd party components.
-* APIs/Services
-* Databases
-* Queues
+Now that we've truely set the scene, let's make our way through the components in this real-time application and identify the tools, tips & tricks that I've found are really useful as we develop our app.
 
 ---
 
 ## Consuming Data Sources
 
 * Data source
-* App server **<-- Here**
+  * <-- Here (needs arrow showing app consuming data sources)
+* App server 
 * Real-time framework
 * Client app
 
+???
+
+When building real-time applications you quite frequently get data from 3rd party components.
+
+* APIs/Services
+* Databases
+* Queues
+
+There are a lot of potential places where this real-time data can comes from.
+
 ---
 
-class: bg-white fixed-width-list trans-all em-text top
+class: bg-white fixed-width-list trans-h em-text top
 background-image: url(img/apps-with-realtime-apis.png)
+
+???
+
+Not only are there lots of options, but they also deliver it in various forms.
 
 --
 
@@ -288,9 +337,43 @@ background-image: url(img/apps-with-realtime-apis.png)
 
 ---
 
+class: bg-video, trans-h, em-text, bottom
+
+## Example: The Twitter Streaming API<br /><small>Waiting for data...</small>
+
+<video loop="true">
+  <source src="./img/twitter-where-is-the-data.mp4" type="video/mp4">
+</video>
+
+--
+play_video:
+
+---
+
+class: bg-video, trans-h, em-text, bottom
+
+## Example: The Twitter Streaming API<br /><small>Sometimes there's just too much...</small>
+
+<video loop="true">
+  <source src="./img/twitter-lots-of-data.mp4" type="video/mp4">
+</video>
+
+--
+play_video: 
+
+---
+
+class: top
+
 ## Problem:
 
-You can seldom control what and data source sends and when it sends it. Even it you can, it can be tedious trigger that face data.
+You can seldom control what the data source sends and when it sends it. Even it you can, it can be tedious to trigger test data.
+
+???
+
+The problem: makes the development phase really difficult.
+
+--
 
 ## Solution:
 
@@ -342,11 +425,15 @@ Lots of options available
 
 ---
 
-## You said, keep an eye on the client! What about the client?
+class: bg-pink
+
+## It's all fine and well saying to capture & replay the data. But...
+
+## You said, **always think about the client**! What about the client?
 
 ---
 
-## Web, mobile and all other devices are amazing. But the server is still your work horse. It should still do the vast majority of data processing and decision making.
+## Web, mobile and other devices are amazing. But **the server is your real-time work-horse**. It should still do the vast majority of data processing and decision making.
 
 ---
 
@@ -365,11 +452,30 @@ What other processing? What about IDML (DataSift)?
 
 ---
 
-## Only send the data that is required
+<pre style="height: 100%; overflow: auto;">
+<code class="json hljs remark-code" data-contents="./assets/tweet.json">
+</code></pre>
+
+???
+
+Here's what a standard tweet JSON looks like. Do I really want to send all this over the wire? It ultimately has to be converted from bytes or a string and parsed into a an object before the client can do anything with it. The larger it is the more work the client has to do.
 
 ---
 
-**TODO: Twitter example**
+class: tip
+
+## Only send the data that is required
+
+???
+
+Once you've applied the queries or transformations you should only send the data to the client that it needs and is going to use.
+
+---
+
+## Send and initial image, then deltas
+
+* Maintain an image of the current state of data
+* Generate deltas by applying a diff of the update against the image
 
 ---
 
@@ -379,11 +485,14 @@ What other processing? What about IDML (DataSift)?
 
 ---
 
-## Batch messages
+class: bg-video, trans-h, em-text, top
+play_video:
 
----
+## Example: Streaming Tweets to a UI<br /><small>Non-Existent-UX</small>
 
-## Send and initial image, then deltas
+<video loop="true">
+  <source src="./img/streaming-tweets-in-ui.mp4" type="video/mp4">
+</video>
 
 ---
 
@@ -392,6 +501,10 @@ What other processing? What about IDML (DataSift)?
 * The client needs to handle, potentially do some small amount of processing and show that update in the UI
 * Will a human even see the update?
   * see: http://www.pubnub.com/blog/how-fast-is-realtime-human-perception-and-technology/
+  
+---
+
+## Batch messages
 
 ---
 
@@ -552,6 +665,12 @@ The point of integration between the real-time tech and your application.
 * Data considerations: processing, payload, batching etc.
 * Connectivity - transports & protocols
 * Monitoring client performance
+
+---
+
+**TODO: picture of Ben's FOWA London 2015 talk**
+
+How did Ben build this?
 
 ---
 
