@@ -25,6 +25,16 @@ class: bg-light, center, middle
 
 ---
 
+name: white
+layout: true
+
+class: bg-white, center, middle, black-text
+layout: true
+
+<span class="twitter_id">@leggetter</span>
+
+---
+
 template: lblue
 class: title
 
@@ -44,21 +54,17 @@ background-image: url(./img/pusher-circles.png)
 
 ---
 
-class: fixed-width-list
+template: white
+class: top black-text
 
 ## What we'll cover
 
 1. Why Real-Time?
-2. Tools, Tips & Tricks
+--
 
-* Data source <-- HERE
-* App server <-- HERE
-* Real-time framework <-- HERE
-* Client app
-  * Network <-- HERE
-  * Library/App Service <-- HERE
-  * App logic <-- and HERE
-  * UI <-- not HERE
+background-image: url(https://docs.google.com/drawings/d/1DxIqk4b1LhBadH_O277Vr3wHEBOD8ERZPuO7WNqaFKM/pub?w=1195&h=721)
+
+2. Tools, Tips & Techniques
 
 ???
 
@@ -120,11 +126,12 @@ background-image: url(./img/senate-election-results.png)
 ---
 
 template: lblue
-class: bg-video, trans-h, em-text, bottom
+class: bg-video, bg-cover, trans-h, em-text, bottom
 
 # Chat
 
 <video id="video" autoplay="true" loop="true">
+  <source src="./img/pie.webm" type="video/webm">
   <source src="./img/pie.mp4" type="video/mp4">
 </video>
 
@@ -182,14 +189,14 @@ class: trans-h bottom
 
 class: bg-pink, top
 
+# <span class="tip-label"></span> Users expect a real-time UX
+
+--
+
 <img width="20%" src="./img/facebook.png" />
 <img width="20%" src="./img/uservoice.png" />
 <img width="25%" src="./img/google-docs.png" />
 <img width="20%" src="./img/uber.png" />
-
---
-
-# Users expect a real-time UX
 
 --
 
@@ -204,12 +211,10 @@ class: h1-big
 
 ---
 
-## The Anatomy of a Real-Time App
+class: bg-white top black-text
+background-image: url(https://docs.google.com/drawings/d/1_78n6-fvY8-iacXDtzfRlz0d-m57Ahz6P2DoKkJs_K4/pub?w=1195&h=721)
 
-* Data source
-* App server
-* Real-time framework
-* Client app
+## The Anatomy of a Real-Time App
 
 ???
 
@@ -224,10 +229,27 @@ class: h1-big
 
 ---
 
-* Data source <- Here
-* App server
-* Real-time framework
-* Client app
+class: fixed-width-list bg-pink top
+
+## <span class="tip-label"></span> You Have Real-Time Data
+
+--
+
+Any event in your web stack...
+
+* Incoming Data
+* System Interactions
+* User Interactions
+* Data Changes
+
+... represents real-time data.
+
+???
+
+---
+
+class: bg-white
+background-image: url(https://docs.google.com/drawings/d/1dL5nNi8l_tjGSKXPCrCfKljMOUmeC8HKU81LrY1x0wU/pub?w=1195&h=721)
 
 ???
 
@@ -235,10 +257,8 @@ Other systems that ultimately interact with with your application server. Databa
 
 ---
 
-* Data source
-* App server <- Not Here
-* Real-time framework
-* Client app
+class: bg-white
+background-image: url(https://docs.google.com/drawings/d/18g94RT1gHtORhiqTZon8j9U_TFtvto0SJJ9SfYejG6g/pub?w=1195&h=721)
 
 ???
 
@@ -248,10 +268,8 @@ But generally, the application server won't be the source of the real-time data 
 
 ---
 
-* Data source
-* App server
-* Real-time framework <- Here
-* Client app
+class: bg-white
+background-image: url(https://docs.google.com/drawings/d/15fczP5XSDf2uhK43TPgTNYnO2vJDcqFwFwREvgytmUQ/pub?w=1195&h=721)
 
 ???
 
@@ -264,10 +282,8 @@ to the functionality it offers
 
 ---
 
-* Data source
-* App server
-* Real-time framework
-* Client app <- Here
+class: bg-white
+background-image: url(https://docs.google.com/drawings/d/1rZmX1utBDUNEigmUWrr6WsupuNFoqjSR9jXnEgKjUmQ/pub?w=1195&h=721)
 
 ???
 
@@ -275,36 +291,32 @@ Each interaction with the application from the user is a real-time event with as
 
 ---
 
-class: bg-pink tip
+class: bg-white black-text top
+background-image: url(https://docs.google.com/drawings/d/144h2Lr-x5CAr7v1fqrV0MwHM77Mr5tAHtmpftBJ5j4I/pub?w=1195&h=721)
 
-## When designing & building real-time apps, always think about how the **decisions** you're making - **anywhere** in your architecture - will **impact** the **client app**.
-
-???
-
-Anywhere in your real-time application architecture.
-
----
-
-* Data source
-* App server
-* Real-time framework
-* Client app
-
-Tools, Tips & Tricks - from left to right
+## Tools, Tips & Techniques - from left to right
 
 ???
 
-Now that we've truely set the scene, let's make our way through the components in this real-time application and identify the tools, tips & tricks that I've found are really useful as we develop our app.
+Now that we've truely set the scene, let's make our way through the components in this real-time application and identify the tools, tips & techniques that I've found are really useful as we develop our app.
 
 ---
+
+class: bg-pink tip top h1-big
+
+# Before we begin...
+--
+
+## <span class="tip-label"></span> When designing & building real-time apps, always think about **how** the **decisions** you're making - **anywhere** in your stack - will **impact** the **client app**.
+
+???
+
+---
+
+class: bg-white black-text top
+background-image: url(https://docs.google.com/drawings/d/1lWV_UBvVoNWgO3u--0L5A6U2YSGSnaLPO_IC6YPF9uU/pub?w=1195&h=721)
 
 ## Consuming Data Sources
-
-* Data source
-  * <-- Here (needs arrow showing app consuming data sources)
-* App server 
-* Real-time framework
-* Client app
 
 ???
 
@@ -327,6 +339,10 @@ Not only are there lots of options, but they also deliver it in various forms.
 
 --
 
+# Code Callbacks
+
+--
+
 # WebHooks
 --
 
@@ -338,6 +354,7 @@ Not only are there lots of options, but they also deliver it in various forms.
 ---
 
 class: bg-video, trans-h, em-text, bottom
+play_video:
 
 ## Example: The Twitter Streaming API<br /><small>Waiting for data...</small>
 
@@ -345,12 +362,10 @@ class: bg-video, trans-h, em-text, bottom
   <source src="./img/twitter-where-is-the-data.mp4" type="video/mp4">
 </video>
 
---
-play_video:
-
 ---
 
 class: bg-video, trans-h, em-text, bottom
+play_video:
 
 ## Example: The Twitter Streaming API<br /><small>Sometimes there's just too much...</small>
 
@@ -358,20 +373,15 @@ class: bg-video, trans-h, em-text, bottom
   <source src="./img/twitter-lots-of-data.mp4" type="video/mp4">
 </video>
 
---
-play_video: 
-
 ---
 
-class: top
+class: top larger
 
 ## Problem:
 
-You can seldom control what the data source sends and when it sends it. Even it you can, it can be tedious to trigger test data.
+You can't always control what the data source sends and when it sends it. Even it you can, it can be tedious to trigger test data.
 
-???
-
-The problem: makes the development phase really difficult.
+With REST APIs we can generate fake data. With real-time... ?
 
 --
 
@@ -379,28 +389,126 @@ The problem: makes the development phase really difficult.
 
 Capture & replay
 
+???
+
+The problem: makes the development phase really difficult.
+
 ---
 
-## WebSocket / HTTP Streaming
+class: bg-white
+background-image: url(./img/log-all-the-things.png)
+
+---
+
+class: fixed-width-list
+
+## Logs
+
+* Monitor them
+* Filter them
+* Build tools around them
+* Replay them
+
+---
+
+template: white
+
+## WebSocket / HTTP Streaming Tools
 
 ???
 
 HTTP Streaming and WebSocket connections are persistent connections that potentially provide a constant stream of data from the data source.
 
---
+---
 
-* Data source
-  * <-- You could try a proxy here. But I've not had much success.
-  * <-- Instead, capturing incoming data in a log.
-* App server <-- Here
-* Real-time framework
-* Client app
+template: white
+class: top
+background-image: url(https://docs.google.com/drawings/d/1l-zpXT0rmra_oAmUJmO7dYiwAebHfUhJ3JTnWrt-fXM/pub?w=1195&h=721)
+
+## WebSocket / HTTP Streaming Tools<br /><small>Log via Proxies</small>
+
+???
+
+In production, you can capture this data. But in development you want a simple solution that requires less infrastructure.
+
+---
+
+class: fixed-width-list
+template: white
+
+## Proxies
+
+* [Charles Proxy](http://www.charlesproxy.com/)
+* [zaproxy](https://github.com/zaproxy/zaproxy)
+* [Fiddler (Windows/.NET)](http://www.telerik.com/fiddler)
+
+---
+
+template: white
+class: black-text
+
+## GOR
+
+![](https://camo.githubusercontent.com/556d4aa5db32de9535d84d6c6c07f6564b43fc0b/687474703a2f2f692e696d6775722e636f6d2f396d716a32534b2e706e67)
+
+* A simple http traffic replication tool written in Go.  
+* [No WebSocket support right now](https://github.com/buger/gor/issues/2)
+
+[github.com/buger/gor](https://github.com/buger/gor)
+
+---
+
+class: bg-white top black-text
+background-image: url(https://docs.google.com/drawings/d/1-UKjjtf66kuYihycIQSXFiIIeyYVCYB36-6uppx3KS4/pub?w=1195&h=721)
+
+## WebSocket / HTTP Streaming Tools<br /><small>Just write log files</small>
+
+---
+
+template: lblue
+class: bg-video, bg-cover, trans-h, em-text, bottom
+
+# Logging Tools
+
+<video id="video" autoplay="true" loop="true">
+  <!-- <source src="./img/librato.webm" type="video/webm"> -->
+  <source src="./img/librato-web.mp4" type="video/mp4">
+</video>
+
+???
+
+There are some amazing logging tools out there.
+
+* librato
+* data dog
+* loggly
+* logstash
+
+But they do too much. For this, we need something simple.
+
+---
+
+You could...
+
+> log to stdout, use the [logfmt](https://brandur.org/logfmt) format, know your good old grep / sed / awk *- [@zimbatm](https://twitter.com/zimbatm)*
+
+But I want there to be better options
+
+---
+
+class: bg-green thought
+
+## **We need better HTTP Streaming/WebSocket capture & replay tooling**
+
+???
+
+We could do with simpler capture/replay tools
 
 ---
 
 class: top fixed-width-list
 
-## WebHooks
+## WebHook Tools
 
 ???
 
@@ -421,11 +529,15 @@ Lots of options available
 
 ---
 
+class: bg-pink
+
+# <span class="tip-label"</span> Use ngrok
+
 **TODO: Simple ngrok demo/video**
 
 ---
 
-class: bg-pink
+template: dblue
 
 ## It's all fine and well saying to capture & replay the data. But...
 
@@ -433,7 +545,9 @@ class: bg-pink
 
 ---
 
-## Web, mobile and other devices are amazing. But **the server is your real-time work-horse**. It should still do the vast majority of data processing and decision making.
+class: bg-pink
+
+## <span class="tip-label"></span> **The server is your real-time work-horse**. It should still do the vast majority of data processing and decision making. Web, Mobile an IoT clients are great, but they're not processing machines.
 
 ---
 
@@ -441,6 +555,7 @@ class: bg-pink
 
 * Queries
 * Transformations
+* Data formatting
 
 ???
 
@@ -472,16 +587,14 @@ Once you've applied the queries or transformations you should only send the data
 
 ---
 
-## Send and initial image, then deltas
+## Send an initial image, then deltas
 
 * Maintain an image of the current state of data
 * Generate deltas by applying a diff of the update against the image
 
 ---
 
-## Format data for the client
-
-* Further reducing processing on the client
+# Control the frequency of updates
 
 ---
 
@@ -496,7 +609,7 @@ play_video:
 
 ---
 
-## Control the frequency of updates
+# Control the frequency of updates
 
 * The client needs to handle, potentially do some small amount of processing and show that update in the UI
 * Will a human even see the update?
@@ -515,6 +628,8 @@ play_video:
 
 ---
 
+class: fixed-width-list
+
 ## What's going in? What's going out?
 
 ## You need visibility.
@@ -524,13 +639,43 @@ play_video:
 * messages
 * presence
 
+???
+
+As you're developing you really want to know if the code you are writing is having the desired effect. Are connections being established, are subscriptions to data being made, are messages going in to your real-time framework and going out the other side to connected clients?
+
+Is the framework supported functionality working as expected?
+
 ---
 
-**TODO: Pusher Debug Console Demo**
+## Again, we have logs
+
+* Monitor them
+* Filter them
+* Build tools around them
 
 ---
 
-## We need better tools for this
+class: bg-video, trans-h, em-text, bottom
+play_video:
+
+### Example: Pusher Debug Console
+
+<video loop="true">
+  <source src="./img/pusher-debug-console.webm" type="video/webm">
+  <source src="./img/pusher-debug-console.mp4" type="video/mp4">
+</video>
+
+---
+
+## Again: Capture & Replay
+
+---
+
+class: bg-green thought
+
+## **Did I already mention that we need better tools for this?**
+
+???
 
 **TODO: reach out to @zimbatm & @hpoom about real-time logging solutions**
 
@@ -548,7 +693,9 @@ play_video:
 
 ---
 
-## Soon you won't be able to go to the bathroom<small><sup>†</sup></small> without SSL. So use it all the time - including in development.
+class: bg-pink
+
+## Soon you won't be able to go to the bathroom<small><sup>†</sup></small> without SSL. So **use SSL all the time** - <span class="underline">including in development</span>.
 
 <small><sup>†</sup> erm, I mean use HTTP/2 or ServiceWorker or any future web tech</small>
 
@@ -558,19 +705,31 @@ play_video:
 
 ---
 
-## Use the most appropriate transport for your client
+class: trans-h top
+background-image: url(./img/internet-http-es-ws.png)
 
-**TODO: Diagram**
-
-* TCP/UDP
-* HTTP
-* WebSocket
+<h3 style="position: absolute; top: 0; left: 0; width: 100%; padding: 20px 0;">Use the most appropriate transport for your client</h3>
 
 ---
 
-## Use the right real-time protocol for your app
+class: trans-h
+background-image: url(./img/internet-http-es-ws-msg-pubsub-rmi-ds.png)
 
-**TODO: communication patterns on top of transports diagram**
+<h3 style="position: absolute; top: 0; left: 0; width: 100%; padding: 20px 0;">Use the right real-time communication pattern for your app</h3>
+
+???
+
+communication patterns on top of transports diagram
+
+---
+
+background-image: url(./img/rtw-tech-decision-matrix-black.png)
+class: bg-white
+
+---
+
+<a href="https://www.youtube.com/watch?v=VENVNimklWg"><img src="./img/fowa-choosing-realtime.png" width="100%" /></a>
+FOWA London 2013
 
 ---
 
@@ -599,18 +758,22 @@ play_video:
 * Real-time framework
 * Client app
   * Network
-  * Library/App Service <-- HERE
+    *  <-- HERE (arrow moving from Network int Library)
+  * Library/App Service
   * App logic
   * UI
 
 ---
 
-## We're doing everything we can to make things easy for the client
+class: fixed-width-list
 
+## Because we've **always considered the client** we're doing everything we can to make things easy for the client
+
+* Processing - on the server
 * Payload - focused & minimal
 * Image + Deltas
-* Formatted - reduce processing
-* Batched - update frequency
+* Formatted - further reduce processing
+* Update frequency - controlled / batched
 
 ---
 
@@ -620,26 +783,29 @@ play_video:
 
 ## Latency
 
-* Publish and Receive timestamps.
-* Be aware of system clock offsets.
+* Publish and Receive timestamps
+* Consider:
+  * Timezone differences
+  * System clock offsets
+* If latency gets high, inform the user
 
 ---
 
-## Message backlog
+## Message Backlog
 
 **TODO: diagram**
 
 ---
 
-## Throttle updates
+## Let the server know
 
-* Feed that back to the server
+* Throttle updates
 
 ---
 
 ## RESET
 
-* If things get bad, reset
+* If things get really bad, reset
 
 ---
 
@@ -662,15 +828,27 @@ The point of integration between the real-time tech and your application.
 ## We've covered a Lots
 
 * Data Sources - you can't control the data
-* Data considerations: processing, payload, batching etc.
-* Connectivity - transports & protocols
+* Data considerations: processing, payload, update frequency
+* Connectivity - SSL, transports & protocols
 * Monitoring client performance
+
+---
+
+## Problem:
+
+All these things to consider and I just want to build a real-time feature!
 
 ---
 
 **TODO: picture of Ben's FOWA London 2015 talk**
 
 How did Ben build this?
+
+???
+
+Now, I'm sure Ben has lots of friends. But do you think he has them round his house for hours on end to help him make sure his demos work?
+
+No!
 
 ---
 
@@ -719,7 +897,7 @@ Use a service/library abstraction. Mock out data and connectivity events.
   * Minimal processing
   * Easy to fake
 * Connectivity:
-  * Handled for you
+  * Handled for you by the real-time framework
   * Easy to fake
 
 ## You can focus on the real-time functionality

@@ -109,7 +109,7 @@
       
       .bg-pink {
         background: #f4065f !important;
-        color: white;
+        color: white !important;
       }
       
       .green-template {
@@ -145,12 +145,47 @@
         background-size: 20%;
       }
       
-      .bg-white {
-        /*color: black;*/
+      .bg-white blockquote,
+      .bg-white blockquote a,
+      .bg-white blockquote a:visited {
+        color: white;
       }
       
       .remark-slide .bg-video video {
         height: 100%;
+      }
+      
+      .bg-video.bg-cover video {
+        width: 100%;
+        height: auto;
+      }
+      
+      .remark-slide .bg-video > h3 {
+        position: relative;
+        z-index: 101;
+      }
+      
+      .underline, .underlined {
+        text-decoration: underline;
+      }
+      
+      .black-text,
+      .black-text a,
+      .black-text a:visited {
+        color: black;
+      }
+      
+      .tip-label {
+        font-weight: bold;
+        font-style: italic;
+      }
+      
+      .tip-label:after {
+        content: ':'
+      }
+      
+      .larger {
+        font-size: 2em;
       }
     </style>
   </head>
@@ -206,12 +241,38 @@
         }
       }
       
+      function logSlideInfoToConsole(slide, slideEl) {
+        console.log(slide);
+      }
+      
       slideshow.on('afterShowSlide', function (slide) {
         var slideEl = getSlideEl(slide);
         
         checkForVideoToPlay(slide, slideEl);
         
-        checkForDataContents(slide, slideEl)
+        checkForDataContents(slide, slideEl);
+        
+        logSlideInfoToConsole(slide, slideEl)
+      });
+      
+      var allSlides = slideshow.getSlides();
+      var tipCount = 0;
+      var newTipGroup = false;
+      allSlides.forEach(function(slide) {
+        if(slide.properties.continued == 'false') {
+          newTipGroup = true;
+        }
+        var slideEl = getSlideEl(slide);
+        
+        // One tip per slide
+        var tipEl = slideEl.querySelector('.tip-label');
+        if(tipEl) {
+          if(newTipGroup) {
+            tipCount++;
+            newTipGroup = false;
+          }
+          tipEl.innerHTML = 'Tip #' + tipCount;
+        }
       });
     </script>
 
