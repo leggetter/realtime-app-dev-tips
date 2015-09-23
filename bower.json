@@ -1,0 +1,25 @@
+{
+  "name": "web-components-now",
+  "version": "0.0.0",
+  "homepage": "https://github.com/leggetter/web-components-now",
+  "authors": [
+    "leggetter <phil@leggetter.co.uk>"
+  ],
+  "description": "Why you should be using Web Components Now. And How.",
+  "keywords": [
+    "presentation"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pusher-remark-themes": "*",
+    "remark": "~0.12.0"
+  }
+}

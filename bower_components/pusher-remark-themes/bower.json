@@ -1,0 +1,19 @@
+{
+  "name": "pusher-remark-themes",
+  "version": "0.0.1",
+  "authors": [
+    "leggetter <phil@leggetter.co.uk>"
+  ],
+  "description": "Themes used in Pusher remarkjs presentations",
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pusher-growth/pusher-remark-themes.git"
+  }
+}
