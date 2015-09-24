@@ -395,6 +395,18 @@ The problem: makes the development phase really difficult.
 
 ---
 
+template: white
+class: top
+background-image: url(https://docs.google.com/drawings/d/1l-zpXT0rmra_oAmUJmO7dYiwAebHfUhJ3JTnWrt-fXM/pub?w=1195&h=721)
+
+## Capture & Replay via Proxies
+
+???
+
+In production, you can capture this data. But in development you want a simple solution that requires less infrastructure.
+
+---
+
 class: bg-white
 background-image: url(./img/log-all-the-things.png)
 
@@ -411,6 +423,42 @@ class: fixed-width-list
 
 ---
 
+class: top fixed-width-list
+
+## WebHook Tools
+
+???
+
+WebHooks are HTTP callbacks from one server to another. They're triggered when one server has data that it wants to send to another, normally via a `POST` request.
+
+--
+
+Lots of options available
+
+* [Forward](https://forwardhq.com/)
+* [Finch](https://meetfinch.com/)
+* [UltraHook](http://www.ultrahook.com/)
+* [localtunnel.me](http://localtunnel.me/)
+* [pagekite](https://pagekite.net/)
+--
+
+* [ngrok](https://ngrok.com/) -- *use ngrok*
+
+---
+
+class: bg-pink bg-video bg-cover trans-h em-text bottom
+
+## <span class="tip-label"></span> Use ngrok
+
+<video controls>
+  <source src="./img/ngrok.mp4" type="video/mp4">
+</video>
+
+--
+play_video:
+
+---
+
 template: white
 
 ## WebSocket / HTTP Streaming Tools
@@ -418,18 +466,6 @@ template: white
 ???
 
 HTTP Streaming and WebSocket connections are persistent connections that potentially provide a constant stream of data from the data source.
-
----
-
-template: white
-class: top
-background-image: url(https://docs.google.com/drawings/d/1l-zpXT0rmra_oAmUJmO7dYiwAebHfUhJ3JTnWrt-fXM/pub?w=1195&h=721)
-
-## WebSocket / HTTP Streaming Tools<br /><small>Log via Proxies</small>
-
-???
-
-In production, you can capture this data. But in development you want a simple solution that requires less infrastructure.
 
 ---
 
@@ -504,36 +540,6 @@ class: bg-green thought
 
 We could do with simpler capture/replay tools
 
----
-
-class: top fixed-width-list
-
-## WebHook Tools
-
-???
-
-WebHooks are HTTP callbacks from one server to another. They're triggered when one server has data that it wants to send to another, normally via a `POST` request.
-
---
-
-Lots of options available
-
-* [Forward](https://forwardhq.com/)
-* [Finch](https://meetfinch.com/)
-* [UltraHook](http://www.ultrahook.com/)
-* [localtunnel.me](http://localtunnel.me/)
-* [pagekite](https://pagekite.net/)
---
-
-* [ngrok](https://ngrok.com/) -- *use ngrok*
-
----
-
-class: bg-pink
-
-# <span class="tip-label"</span> Use ngrok
-
-**TODO: Simple ngrok demo/video**
 
 ---
 
