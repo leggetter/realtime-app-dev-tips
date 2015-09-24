@@ -588,15 +588,9 @@ Here's what a standard tweet JSON looks like. Do I really want to send all this 
 
 ---
 
-class: tip
+class: bg-pink
 
-## Only send the data that is required
-
-???
-
-Once you've applied the queries or transformations you should only send the data to the client that it needs and is going to use.
-
----
+## <span class="tip-label"></span> Only send the data that is required
 
 .left[
 **Don't send this**
@@ -615,11 +609,15 @@ Once you've applied the queries or transformations you should only send the data
 ```
 ]
 
+???
+
+Once you've applied the queries or transformations you should only send the data to the client that it needs and is going to use.
+
 ---
 
-class: top
+class: top bg-pink
 
-## Send an initial image, then changes
+## <span class="tip-label"></span> Send an initial image, then changes
 
 * Maintain an image of the current state of data
 * Only send data that changes
@@ -667,10 +665,6 @@ class: center-pre
 
 ---
 
-# Control the frequency of updates
-
----
-
 class: bg-video, trans-h, em-text, top
 play_video:
 
@@ -680,18 +674,24 @@ play_video:
   <source src="./img/streaming-tweets-in-ui.mp4" type="video/mp4">
 </video>
 
+???
+
+Even if you've made sure you're:
+1. Doing all the heaving lifting on the server
+2. only sending the data that's required
+You still need to watch how often you're sending
+
 ---
 
 # Control the frequency of updates
 
-* The client needs to handle, potentially do some small amount of processing and show that update in the UI
-* Will a human even see the update?
-  * see: http://www.pubnub.com/blog/how-fast-is-realtime-human-perception-and-technology/
+* 100ms is instantaneous to a human
+* 250ms is average human reaction time
+* Each update requires some processing
+  * Data parsing
+  * UI updates
+  * ...
   
----
-
-## Batch messages
-
 ---
 
 * Data source
