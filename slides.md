@@ -407,22 +407,6 @@ In production, you can capture this data. But in development you want a simple s
 
 ---
 
-class: bg-white
-background-image: url(./img/log-all-the-things.png)
-
----
-
-class: fixed-width-list
-
-## Logs
-
-* Monitor them
-* Filter them
-* Build tools around them
-* Replay them
-
----
-
 class: top fixed-width-list
 
 ## WebHook Tools
@@ -501,6 +485,24 @@ background-image: url(https://docs.google.com/drawings/d/1-UKjjtf66kuYihycIQSXFi
 
 ---
 
+class: bg-white trans-h
+background-image: url(./img/log-all-the-things.png)
+
+<h2 style="position: absolute; top: 0; left: 0; display: inline-block;"><span class="tip-label"></span></h2>
+
+---
+
+class: fixed-width-list
+
+## Logs
+
+* Monitor them
+* Filter them
+* Build tools around them
+* Replay them
+
+---
+
 template: lblue
 class: bg-video, bg-cover, trans-h, em-text, bottom
 
@@ -534,7 +536,7 @@ But I want there to be better options
 
 class: bg-green thought
 
-## **We need better HTTP Streaming/WebSocket capture & replay tooling**
+## **We need better HTTP Streaming/WebSocket capture & replay tooling to improve the developer experience**
 
 ???
 
@@ -554,6 +556,9 @@ template: dblue
 class: bg-pink
 
 ## <span class="tip-label"></span> **The server is your real-time work-horse**. It should still do the vast majority of data processing and decision making. Web, Mobile an IoT clients are great, but they're not processing machines.
+
+???
+Don't just pass all this data directly on to the client.
 
 ---
 
@@ -593,10 +598,72 @@ Once you've applied the queries or transformations you should only send the data
 
 ---
 
-## Send an initial image, then deltas
+.left[
+**Don't send this**
+<pre>
+<code class="json hljs remark-code" data-contents="./assets/tweet.json">
+</code></pre>
+]
+.right[
+**When you only need this**
+```json
+{
+  "screen_name": "leggetter",
+  "text": "I love to tweet",
+  "created_at": "Wed Sep 23 18:10:25 +0000 2015"
+}
+```
+]
+
+---
+
+class: top
+
+## Send an initial image, then changes
 
 * Maintain an image of the current state of data
-* Generate deltas by applying a diff of the update against the image
+* Only send data that changes
+
+--
+
+.left[
+```json
+{
+  "home_team": "Liverpool",
+  "home_team_score": 0,
+  "away_team": "Arsenal",
+  "away_team_score": 0,
+  "event_time": "1443117125014"
+}
+```
+]
+--
+
+.right[
+```json
+{
+  "home_team": "Liverpool",
+  **"home_team_score": 1,**
+  "away_team": "Arsenal",
+  "away_team_score": 0,
+  **"event_time": "1443117150287"**
+}
+```
+]
+--
+&#9660;
+--
+
+class: center-pre
+
+.center[
+```json
+{
+  "home_team_score": 1,
+  "event_time": "1443117150287"
+}
+```
+]
 
 ---
 
