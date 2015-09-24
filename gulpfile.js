@@ -2,8 +2,18 @@ var gulp = require('gulp');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var imageResize = require('gulp-image-resize');
+var webserver = require('gulp-webserver');
 
 gulp.task('default', ['resize', 'optimize'], function () {
+});
+
+gulp.task('serve', function() {
+  gulp.src('.')
+    .pipe(webserver({
+      livereload: true,
+      directoryListing: false,
+      open: true
+    }));
 });
 
 function resize(path) {
