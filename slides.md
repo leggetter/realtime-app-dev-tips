@@ -437,7 +437,7 @@ Lots of options available
 
 ---
 
-class: bg-pink bg-video bg-cover trans-h em-text bottom
+class: bg-video bg-cover trans-h em-text bottom
 
 ## <span class="tip-label"></span> Use ngrok
 
@@ -559,7 +559,7 @@ We could do with simpler capture/replay tools
 
 class: bg-pink
 
-## <span class="tip-label"></span> **The server is your real-time work-horse**. It should still do the vast majority of data processing and decision making. Web, Mobile an IoT clients are great, but they're not processing machines.
+## <span class="tip-label"></span> **The server is your real-time data work-horse**. It should still do the vast majority of data processing and decision making. Web, Mobile an IoT clients are great, but they're not processing machines.
 
 ???
 Don't just pass all this data directly on to the client.
@@ -624,9 +624,7 @@ Once you've applied the queries or transformations you should only send the data
 
 ---
 
-class: top bg-pink
-
-## <span class="tip-label"></span> Send an initial image, then changes
+## Send an initial image, then changes
 
 * Maintain an image of the current state of data
 * Only send data that changes
@@ -692,9 +690,7 @@ You still need to watch how often you're sending
 
 ---
 
-class: bg-pink
-
-## <span class="tip-label"></span> Control the frequency of updates
+## Control the frequency of updates
 
 * 100ms is instantaneous to a human
 * 250ms is average human reaction time
@@ -826,20 +822,19 @@ communication patterns on top of transports diagram
 
 ---
 
-background-image: url(./img/rtw-tech-decision-matrix-black.png)
+background-image: url(https://docs.google.com/drawings/d/1KiPBLoNpAY-4LAdqSE4YsT7_CzusLB5xC9AUYDin7Lg/pub?w=960&h=720)
 class: bg-white
 
 ---
 
-background-image: url(./img/rtw-tech-decision-matrix-black.png)
+background-image: url(https://docs.google.com/drawings/d/1mPgTs6fgL6R9-JkCxghNG2x4Jg-0m10oK09KUpO8pHY/pub?w=960&h=720)
 class: bg-white
-
-**TODO: use cases**
 
 ---
 
-<a href="https://www.youtube.com/watch?v=VENVNimklWg"><img src="./img/fowa-choosing-realtime.png" width="100%" /></a>
-FOWA London 2013
+<a href="https://www.youtube.com/watch?v=VENVNimklWg"><img src="./img/fowa-choosing-realtime.png" width="80%" /></a>
+
+### <span class="tip-label"></span> Watch <a href="https://www.youtube.com/watch?v=VENVNimklWg">Choosing Your Real-Time Web App Tech Stack - FOWA 2013</a>
 
 ---
 
@@ -897,9 +892,20 @@ class: fixed-width-list
 
 ---
 
+class: top-left
+
+background-image: url(https://docs.google.com/drawings/d/1qN0CJUvdhgIc9iZnNiRrFGKggsJ5UxCP57IiCG9vzTI/pub?w=1195&h=721)
+
 ## Message Backlog
 
-**TODO: diagram**
+If updating the UI causes a delay, a queue of messages can start building up
+
+* `setTimeout`
+* `requestAnimationFrame`
+
+???
+
+http://jsbin.com/sarobe/edit?js,console
 
 ---
 
@@ -955,7 +961,7 @@ No!
 
 class: bg-pink
 
-## <span class="tip-label"></span> Use a service/library abstraction or stub. Mock out **data** (messages) & **connectivity** events.
+## <span class="tip-label"></span> **Use a service/library abstraction** or stub. Mock out **data** (messages) & **connectivity** events.
 
 ---
 
@@ -979,11 +985,29 @@ class: fixed-width-list
 
 ---
 
+class: top-left
 background-image: url(https://docs.google.com/drawings/d/1S8HlwfMF7iMyoFQhx9YBmVeU3ebyJmjpIPJe9qiSlSk/pub?w=1195&h=721)
+
+## App Logic / UI Updates
+
+As discussed, not covered in this talk.
+
+But...
 
 ---
 
 class: fixed-width-list
+
+## Browser Developer Tools are Great!
+
+* Performance Monitoring
+* UI rendering
+* Look at these Resources
+* Follow these people
+
+---
+
+class: fixed-width-list bg-pink
 
 ## You've done the hard work!
 
@@ -995,22 +1019,7 @@ class: fixed-width-list
   * Handled for you by the real-time framework
   * Easy to fake
 
-## You can focus on the real-time functionality
-
----
-
-## Browser Developer Tools are Great!
-
-* Performance Monitoring
-* UI rendering
-* Look at these Resources
-* Follow these people
-
----
-
-class: bg-pink
-
-# SUMMARY
+## You can focus on the **Real-Time UX**
 
 ---
 
