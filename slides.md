@@ -181,7 +181,7 @@ background-image: url(./img/lunar-landing.png)
 ---
 
 background-image: url(./img/robot-door-fail.gif)
-class: trans-h bottom
+class: trans-h bottom bg-cover
 
 # IoT
 
@@ -585,11 +585,9 @@ What other processing? What about IDML (DataSift)?
 
 ---
 
-# Data Payload
+## Data Payload
 
----
-
-<pre style="height: 100%; overflow: auto;">
+<pre style="height: 80%; overflow: auto;">
 <code class="json hljs remark-code" data-contents="./assets/tweet.json">
 </code></pre>
 
@@ -704,6 +702,7 @@ class: bg-pink
   * Data parsing
   * UI updates
   * ...
+* Consider batching
   
 ---
 
@@ -762,7 +761,6 @@ class: fixed-width-list
 ---
 
 class: bg-video, trans-h, em-text, bottom
-play_video:
 
 ## Example: Pusher Debug Console
 
@@ -770,6 +768,10 @@ play_video:
   <source src="./img/pusher-debug-console.mp4" type="video/mp4">
   <source src="./img/pusher-debug-console.webm" type="video/webm">
 </video>
+
+--
+
+play_video:
 
 ---
 
@@ -855,29 +857,39 @@ background-image: url(https://docs.google.com/drawings/d/1rOpWrX-4xOoCmXDVuIZI50
 
 ---
 
+class: top-left
 background-image: url(https://docs.google.com/drawings/d/1N6NRRYf_qzDgkpPTmrK5D4F-fttyPwvw0NMs3o8ls3o/pub?w=1195&h=721)
+
+## Client Apps (Breakdown)
 
 ---
 
-class: fixed-width-list
+class: fixed-width-list top
 
-## Because we've **always considered the client** we're doing everything we can to make things easy for the client
+## Because we've **always considered the client** we're doing everything we can to make things easy
+
+--
 
 * Processing - on the server
 * Payload - focused & minimal
-* Image + Deltas
+* Image + Changes
 * Formatted - further reduce processing
 * Update frequency - controlled / batched
 
 ---
 
-## Monitor Client Performance
+class: bg-pink
+
+## <span class="tip-label"></span> **Monitor Client Performance** - if you know how the client is coping, you can make adjustments.
 
 ---
 
+class: fixed-width-list
+
 ## Latency
 
-* Publish and Receive timestamps
+* Timestamp published messages
+* Check time upon receipt
 * Consider:
   * Timezone differences
   * System clock offsets
@@ -891,27 +903,22 @@ class: fixed-width-list
 
 ---
 
-## Let the server know
+class: fixed-width-list
 
-* Throttle updates
+## Throttle Updates
 
----
+**Let the server know the client is struggling**
 
 ## RESET
 
-* If things get really bad, reset
+**If things get really bad**
 
 ---
 
-* Data source
-* App server
-* Real-time framework
-* Client app
-  * Network
-  * Library/App Service
-    *  <-- HERE
-  * App logic
-  * UI
+class: top-left
+background-image: url(https://docs.google.com/drawings/d/1nKhiqmidFMSJuVrWnBYKoLS4UWKsx7HHTzrMbuy-__I/pub?w=1195&h=721)
+
+## Using the Real-Time Framework library within your App Logic
 
 ???
 
@@ -919,7 +926,9 @@ The point of integration between the real-time tech and your application.
 
 ---
 
-## We've covered a Lots
+class: fixed-width-list
+
+## We've covered a lot
 
 * Data Sources - you can't control the data
 * Data considerations: processing, payload, update frequency
@@ -928,9 +937,7 @@ The point of integration between the real-time tech and your application.
 
 ---
 
-## Problem:
-
-All these things to consider and I just want to build a real-time feature!
+## **Problem:** All these things to consider and I just want to build a real-time feature!
 
 ---
 
@@ -946,15 +953,13 @@ No!
 
 ---
 
-## Problem:
+class: bg-pink
 
-All these things to consider and I just want to build a real-time feature!
-
-## Solution:
-
-Use a service/library abstraction. Mock out data and connectivity events.
+## <span class="tip-label"></span> Use a service/library abstraction or stub. Mock out **data** (messages) & **connectivity** events.
 
 ---
+
+class: fixed-width-list
 
 ## Use a service/library abstraction
 
@@ -970,19 +975,15 @@ Use a service/library abstraction. Mock out data and connectivity events.
 
 ---
 
-## Bonus: Abstractions enable change
+## Bonus: **Abstractions enable change**. You could swap out the underlying real-time technology in the future.
 
 ---
 
-* App server
-* Real-time framework
-* Client app
-  * Network
-  * Library/App Service
-  * App logic <-- HERE (and below)
-  * UI
+background-image: url(https://docs.google.com/drawings/d/1S8HlwfMF7iMyoFQhx9YBmVeU3ebyJmjpIPJe9qiSlSk/pub?w=1195&h=721)
 
 ---
+
+class: fixed-width-list
 
 ## You've done the hard work!
 
@@ -1021,6 +1022,7 @@ class: fixed-width-list
 
 ---
 
+template: lblue
 class: title
 
 ## Tools, Tips and Techniques<br />for Developing Real-time Apps
