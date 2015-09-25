@@ -42,7 +42,8 @@ h1, h2, h3, h4 {
 }
 
 .remark-slide .trans-h h1,
-.remark-slide .trans-h h2 {
+.remark-slide .trans-h h2,
+.remark-slide .trans-h h3 {
   background-color: black;
   color: white;
   padding: 20px 45px;

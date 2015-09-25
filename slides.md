@@ -313,6 +313,13 @@ class: bg-pink tip top h1-big
 
 ---
 
+template: dblue
+class: h1-big
+
+# Data Sources
+
+---
+
 class: bg-white black-text top
 background-image: url(https://docs.google.com/drawings/d/1lWV_UBvVoNWgO3u--0L5A6U2YSGSnaLPO_IC6YPF9uU/pub?w=1195&h=721)
 
@@ -503,7 +510,6 @@ class: fixed-width-list
 
 ---
 
-template: lblue
 class: bg-video, bg-cover, trans-h, em-text, bottom
 
 # Logging Tools
@@ -545,8 +551,6 @@ We could do with simpler capture/replay tools
 
 ---
 
-template: dblue
-
 ## It's all fine and well saying to capture & replay the data. But...
 
 ## You said, **always think about the client**! What about the client?
@@ -559,6 +563,13 @@ class: bg-pink
 
 ???
 Don't just pass all this data directly on to the client.
+
+---
+
+template: dblue
+class: h1-big
+
+# App Servers
 
 ---
 
@@ -683,7 +694,9 @@ You still need to watch how often you're sending
 
 ---
 
-# Control the frequency of updates
+class: bg-pink
+
+## <span class="tip-label"></span> Control the frequency of updates
 
 * 100ms is instantaneous to a human
 * 250ms is average human reaction time
@@ -694,23 +707,41 @@ You still need to watch how often you're sending
   
 ---
 
-* Data source
-* App server
-* Real-time framework **<-- Here**
-* Client app
+template: dblue
+class: h1-big
+
+# Real-Time Framework
 
 ---
 
-class: fixed-width-list
+class: top
+background-image: url(https://docs.google.com/drawings/d/1ERZ2boQXQ8PHFF738ZwCupymA7fSKzr8xIjW4SHlJdM/pub?w=1195&h=721)
 
-## What's going in? What's going out?
+## We know what data we're sending to the Real-Time Framework
 
-## You need visibility.
+???
+
+So, we've covered building up the data payloads that we're going to send to the Real-Time Server...
+
+---
+
+class: bottom
+background-image: url(https://docs.google.com/drawings/d/1k_7-4yTvs-cb6slQXvzgBwBL0SaFfE-hSpTjAfnS8Xg/pub?w=1195&h=721)
+
+* Can we confirm what's going in?
+* And see what's going out?
+
+---
+
+class: fixed-width-list bg-pink
+
+## <span class="tip-label"></span> You need to know what's going on in your real-time framework
 
 * connections
 * subscriptions
 * messages
 * presence
+* other events/features
 
 ???
 
@@ -720,7 +751,9 @@ Is the framework supported functionality working as expected?
 
 ---
 
-## Again, we have logs
+class: fixed-width-list
+
+## LOG ALL THE THINGS
 
 * Monitor them
 * Filter them
@@ -731,11 +764,11 @@ Is the framework supported functionality working as expected?
 class: bg-video, trans-h, em-text, bottom
 play_video:
 
-### Example: Pusher Debug Console
+## Example: Pusher Debug Console
 
 <video loop="true">
-  <source src="./img/pusher-debug-console.webm" type="video/webm">
   <source src="./img/pusher-debug-console.mp4" type="video/mp4">
+  <source src="./img/pusher-debug-console.webm" type="video/webm">
 </video>
 
 ---
@@ -754,25 +787,20 @@ class: bg-green thought
 
 ---
 
-* Data source
-* App server
-* Real-time framework
-  *  **<-- Here**
-* Client app
-
----
+class: top
+background-image:url(https://docs.google.com/drawings/d/1KAb6UWTyOVCWMpf5ZOJHq4eW1nNSBcjnUrDTf0mw7Tw/pub?w=1195&h=721)
 
 ## Connectivity
 
 ---
 
-class: bg-pink
+class: bg-pink top
 
-## Soon you won't be able to go to the bathroom<small><sup>†</sup></small> without SSL. So **use SSL all the time** - <span class="underline">including in development</span>.
+## <span class="tip-label"></span> Soon you won't be able to go to the bathroom<small><sup>†</sup></small> without SSL. So **use SSL all the time** - <span class="underline">including in development</span>.
 
 <small><sup>†</sup> erm, I mean use HTTP/2 or ServiceWorker or any future web tech</small>
 
----
+--
 
 ## You need SSL for networks with proxies and firewalls. In particular, mobile networks.
 
@@ -781,14 +809,14 @@ class: bg-pink
 class: trans-h top
 background-image: url(./img/internet-http-es-ws.png)
 
-<h3 style="position: absolute; top: 0; left: 0; width: 100%; padding: 20px 0;">Use the most appropriate transport for your client</h3>
+<h3 style="position: absolute; top: 0; left: 0; width: 100%; padding: 20px 0;"><span class="tip-label"></span> Use the most appropriate transport for your client</h3>
 
 ---
 
 class: trans-h
 background-image: url(./img/internet-http-es-ws-msg-pubsub-rmi-ds.png)
 
-<h3 style="position: absolute; top: 0; left: 0; width: 100%; padding: 20px 0;">Use the right real-time communication pattern for your app</h3>
+<h3 style="position: absolute; top: 0; left: 0; width: 100%; padding: 20px 0;"><span class="tip-label"></span> Use the right real-time comms pattern for your app</h3>
 
 ???
 
@@ -801,40 +829,33 @@ class: bg-white
 
 ---
 
+background-image: url(./img/rtw-tech-decision-matrix-black.png)
+class: bg-white
+
+**TODO: use cases**
+
+---
+
 <a href="https://www.youtube.com/watch?v=VENVNimklWg"><img src="./img/fowa-choosing-realtime.png" width="100%" /></a>
 FOWA London 2013
 
 ---
 
-* Data source
-* App server
-* Real-time framework
-* Client app **<-- Here**
+template: dblue
+class: h1-big
+
+# Client Apps
 
 ---
 
-## Client Breakdown
+class: top-left
+background-image: url(https://docs.google.com/drawings/d/1rOpWrX-4xOoCmXDVuIZI50EKjRPWlIrFtcmYSJfoPuc/pub?w=1195&h=721)
 
-* Data source
-* App server
-* Real-time framework
-* Client app
-  * Network
-  * Library/App Service
-  * App logic
-  * UI
+## Client Apps (Breakdown)
 
 ---
 
-* Data source
-* App server
-* Real-time framework
-* Client app
-  * Network
-    *  <-- HERE (arrow moving from Network int Library)
-  * Library/App Service
-  * App logic
-  * UI
+background-image: url(https://docs.google.com/drawings/d/1N6NRRYf_qzDgkpPTmrK5D4F-fttyPwvw0NMs3o8ls3o/pub?w=1195&h=721)
 
 ---
 
