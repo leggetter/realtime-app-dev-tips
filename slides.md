@@ -581,7 +581,9 @@ class: h1-big
 
 ???
 
-What other processing? What about IDML (DataSift)?
+* Do whatever you need to do with the data upon receipt.
+* As mentioned, keep the **client in mind** as it's them you're going to be delivering to.
+* What do I mean by that?
 
 ---
 
@@ -620,7 +622,8 @@ class: bg-pink
 
 ???
 
-Once you've applied the queries or transformations you should only send the data to the client that it needs and is going to use.
+* Once you've applied the queries or transformations you should only send the data to the client that it needs and is going to use.
+* Even **consider things like formatting dates so they can be directly displayed** rather than needing to be parsed and formatted on the client. Or at **least send in an easily parsable format**.
 
 ---
 
@@ -788,33 +791,27 @@ class: bg-green thought
 class: top
 background-image:url(https://docs.google.com/drawings/d/1KAb6UWTyOVCWMpf5ZOJHq4eW1nNSBcjnUrDTf0mw7Tw/pub?w=1195&h=721)
 
-## Connectivity
-
----
-
-class: bg-pink top
-
-## <span class="tip-label"></span> Soon you won't be able to go to the bathroom<small><sup>†</sup></small> without SSL. So **use SSL all the time** - <span class="underline">including in development</span>.
-
-<small><sup>†</sup> erm, I mean use HTTP/2 or ServiceWorker or any future web tech</small>
-
---
-
-## You need SSL for networks with proxies and firewalls. In particular, mobile networks.
+## Real-Time Server < - > Client Communication
 
 ---
 
 class: trans-h top
 background-image: url(./img/internet-http-es-ws.png)
 
-<h3 style="position: absolute; top: 0; left: 0; width: 100%; padding: 20px 0;"><span class="tip-label"></span> Use the most appropriate transport for your client</h3>
+<h3 style="position: absolute; top: 0; left: 0; width: 100%; padding: 20px 0;">Use the most appropriate transport for your client</h3>
+
+???
+
+* When thinking about web & mobile WebSocket with HTTP fallback is probably now the defacto standard.
+* What networks lie between your RT server and the Client?
+* What's the most efficient connection type for a client?
 
 ---
 
 class: trans-h
 background-image: url(./img/internet-http-es-ws-msg-pubsub-rmi-ds.png)
 
-<h3 style="position: absolute; top: 0; left: 0; width: 100%; padding: 20px 0;"><span class="tip-label"></span> Use the right real-time comms pattern for your app</h3>
+<h3 style="position: absolute; top: 0; left: 0; width: 100%; padding: 20px 0;">Use the right real-time comms pattern for your app</h3>
 
 ???
 
@@ -832,9 +829,49 @@ class: bg-white
 
 ---
 
+## What Protocol Should You Choose?
+
+.left[
+* [Bayeux](http://svn.cometd.org/trunk/bayeux/bayeux.html)
+* [DDP](https://www.meteor.com/ddp)
+* [dNode](https://github.com/substack/dnode-protocol)
+* [EPCP](https://fanout.io/docs/protocols.html#extensible-pubsub-control-protocol-epcp)
+* [GRIP](https://fanout.io/docs/protocols.html#generic-realtime-intermediary-protocol-grip)
+]
+.right[
+* [MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)
+* [Pusher Protocol](https://pusher.com/docs/pusher_protocol)
+* [STOMP](https://stomp.github.io/stomp-specification-1.2.html)
+* [WAMP](http://wamp.ws/) <small>(Web App Messaging Protocol)</small>
+* XMPP ([various](http://xmpp.org/xmpp-protocols/rfcs/))
+* Proprietary
+]
+
+---
+
+class: bg-pink top
+
+### <span class="tip-label"></span> Choose the Right real-time framework for the functionality you want to build...
+--
+
 <a href="https://www.youtube.com/watch?v=VENVNimklWg"><img src="./img/fowa-choosing-realtime.png" width="80%" /></a>
 
-### <span class="tip-label"></span> Watch <a href="https://www.youtube.com/watch?v=VENVNimklWg">Choosing Your Real-Time Web App Tech Stack - FOWA 2013</a>
+---
+
+class: top
+
+## Soon you won't be able to go to the bathroom<small><sup>†</sup></small> without SSL. 
+--
+
+class: bg-pink
+
+##<span class="tip-label"></span> **Use SSL all the time** - <span class="underline">including in development</span>.
+
+<small><sup>†</sup> erm, I mean use HTTP/2 or ServiceWorker or any future web tech</small>
+
+--
+
+## You need SSL for networks with proxies and firewalls. In particular, mobile networks.
 
 ---
 
