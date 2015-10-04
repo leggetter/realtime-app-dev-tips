@@ -10,7 +10,7 @@ gulp.task('default', ['resize', 'optimize'], function () {
 gulp.task('serve', function() {
   gulp.src('.')
     .pipe(webserver({
-      livereload: true,
+      livereload: false,
       directoryListing: false,
       open: true
     }));
