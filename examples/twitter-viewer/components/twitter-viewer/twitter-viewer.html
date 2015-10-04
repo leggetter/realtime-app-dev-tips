@@ -1,0 +1,40 @@
+<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="http://d3dhju7igb20wy.cloudfront.net/assets/0-4-0/all-the-things.css" />
+
+<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+
+<script>
+  // Added Pusher logging
+  Pusher.log = function(msg) {
+    console.log(msg);
+  };
+</script>
+
+<link rel="stylesheet" href="./css/activity-streams.css" />
+<script src="https://cdn.rawgit.com/samsonjs/strftime/master/strftime-min.js"></script>
+
+<template id="twitter_viewer_template">
+  <section>
+      <div class="activity-app chat-app light-grey-blue-background">
+          <div id="activities"></div>
+          <div id="connection_problems">There is a connection problem. We're trying to reconnect...</div>
+      </div>
+  </section>
+</template>
+
+<template id="activity_template">
+  <div class="message" data-activity-id="">
+    <div class="avatar">
+      <img src="">
+    </div>
+    <div class="text-display">
+      <div class="message-data">
+        <span class="author"></span>
+        <span class="timestamp"></span>
+      </div>
+      <p class="message-body"></p>
+    </div>
+  </div>
+</template>
+
+<script src="./js/activity-streams.js"></script>

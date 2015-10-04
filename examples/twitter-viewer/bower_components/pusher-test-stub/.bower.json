@@ -1,0 +1,34 @@
+{
+  "name": "pusher-test-stub",
+  "homepage": "https://github.com/leggetter/pusher-test-stub",
+  "authors": [
+    "leggetter <phil@leggetter.co.uk>"
+  ],
+  "description": "Overrides the Pusher JavaScript library allowing functionality to be controlled and thus your applications integration with the Pusher library tested.",
+  "main": "dist/pusher-test-stub.js",
+  "keywords": [
+    "pusher",
+    "test"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "src",
+    "gulpfile.js",
+    "package.json",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "21f4b0fbf4",
+  "_resolution": {
+    "type": "branch",
+    "branch": "2.0.0",
+    "commit": "21f4b0fbf4fc5f706016d803e3a2cc3889b184b0"
+  },
+  "_source": "git://github.com/leggetter/pusher-test-stub.git",
+  "_target": "2.0.0",
+  "_originalSource": "pusher-test-stub",
+  "_direct": true
+}

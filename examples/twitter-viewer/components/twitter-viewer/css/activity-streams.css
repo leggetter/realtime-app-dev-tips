@@ -1,0 +1,108 @@
+.chat-app {
+  width: 600px;
+  margin: auto;
+  margin-top: 50px;
+  position: relative;
+}
+
+#connection_problems {
+  position: absolute;
+  background-color: red;
+  color: black;
+  font-weight: bolder;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /*height: 100%;*/
+  opacity:0.4;
+  text-align: center;
+  display: none;
+}
+
+#status_form {
+    margin-bottom: 15px;
+    overflow: auto;
+}
+
+#status_text {
+    width: 100%;
+    padding-bottom: 10px;
+    margin-top: 15px;
+}
+
+#activities {
+    height: 450px;
+    max-height: 450px;
+    overflow: auto;
+}
+
+.chat-app .message:first-child {
+    margin-top: 15px;
+}
+
+.header-avatar {
+  max-width: inherit;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.halflings {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.halflings.halflings-heart:before {
+    content: "\e005";
+}
+
+.halflings.halflings-trash:before {
+    content: "\e020";
+}
+
+.halflings.halflings-plus-sign:before {
+    content: "\e081";
+}
+
+.like-action:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.trash-action:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.follow-action {
+  /*position: absolute;
+  bottom: 0;
+  right: 0;*/
+}
+
+.follow-action:hover {
+  cursor: pointer;
+  color: green;
+}
+
+.actions-positive {
+  float: left;
+}
+
+.actions-negative {
+  float: right;
+}
+
+.status-activity {
+  background-color: #f2f7f8;
+}
+
+.following-status-activity {
+}

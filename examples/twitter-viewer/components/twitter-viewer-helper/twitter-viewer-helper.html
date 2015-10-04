@@ -1,0 +1,80 @@
+<template id="twitter_viewer_helper_template">
+  <style>
+  #dev_helpers {
+    position: fixed;
+    padding: 5px;
+    left: 0;
+    top: 100px;
+    width: 300px;
+    background-color: white;
+    font-family: monospace;
+  }
+  #dev_helpers button {
+    width: auto;
+    height: auto;
+    padding: 5px;
+  }
+  </style>
+  <section id="dev_helpers">
+    <h3>Dev Helpers</h3>
+    <form id="tweet_sender">
+      <input id="tweet_name" value="leggetter" />
+      <input id="tweet_text" value="Hello!" />
+      <button>Send</button>
+    </form>
+    <hr />
+    Online: <input type="checkbox" id="online_offline" checked />
+  </section>
+</template>
+
+<script>
+( function( currentScript ) {
+  var importDoc = currentScript.ownerDocument;
+  
+  var Helper = Object.create(HTMLElement.prototype);
+  
+  Helper.createdCallback = function() {
+    var content = importDoc.querySelector('#twitter_viewer_helper_template').content;
+    var el = this.ownerDocument.importNode(content, true);
+    this.appendChild(el);
+  };
+  
+  Helper.attachedCallback = function() {
+    $(this).find('#tweet_sender button').click(function() {
+      var data = {
+        user: {screen_name: $('#tweet_name').val()},
+        text: $('#tweet_text').val(),
+        id_str: '00001',
+        created_at: Date.now()
+      };
+      PusherTestStub.singleton.trigger('tweets', 'new-tweet', data);
+      
+      return false;
+    });
+    
+    $(this).find('#online_offline').click(function() {
+      var stateChange = {
+        previous: 'unavailable',
+        current: 'connected'
+      };
+      
+      if(!this.checked) {
+        stateChange.previous = 'connected';
+        stateChange.current = 'unavailable';
+      }
+      
+      PusherTestStub.singleton.connection.emit('state_change', stateChange);
+    });
+  };
+  
+  document.registerElement('twitter-viewer-helper', {
+    prototype: Helper
+  });
+  
+  window.addEventListener('load', function() {
+    var el = document.createElement('twitter-viewer-helper');
+    document.body.appendChild(el);
+  });
+  
+} )( document._currentScript || document.currentScript );
+</script>

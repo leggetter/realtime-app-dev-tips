@@ -307,7 +307,7 @@ class: bg-pink tip top h1-big
 # Before we begin...
 --
 
-## <span class="tip-label"></span> When designing & building real-time apps, always think about **how** the **decisions** you're making - **anywhere** in your stack - will **impact** the **client app**.
+## <span class="tip-label"></span> When designing & building real-time apps, **always think** about **how** the **decisions** you're making - **anywhere** in your stack - will **impact** the **client app**.
 
 ???
 
@@ -627,6 +627,8 @@ class: bg-pink
 
 ---
 
+class: top
+
 ## Send an initial image, then changes
 
 * Maintain an image of the current state of data
@@ -693,14 +695,23 @@ You still need to watch how often you're sending
 
 ---
 
+class: top
+
 ## Control the frequency of updates
+--
 
 * 100ms is instantaneous to a human
+--
+
 * 250ms is average human reaction time
+--
+
 * Each update requires some processing
   * Data parsing
   * UI updates
   * ...
+--
+
 * Consider batching
   
 ---
@@ -808,6 +819,26 @@ background-image: url(./img/internet-http-es-ws.png)
 
 ---
 
+## What Protocol Should You Choose?
+
+.left[
+* [Bayeux](http://svn.cometd.org/trunk/bayeux/bayeux.html)
+* [DDP](https://www.meteor.com/ddp)
+* [dNode](https://github.com/substack/dnode-protocol)
+* [EPCP](https://fanout.io/docs/protocols.html#extensible-pubsub-control-protocol-epcp)
+* [GRIP](https://fanout.io/docs/protocols.html#generic-realtime-intermediary-protocol-grip)
+]
+.right[
+* [MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)
+* [Pusher Protocol](https://pusher.com/docs/pusher_protocol)
+* [STOMP](https://stomp.github.io/stomp-specification-1.2.html)
+* [WAMP](http://wamp.ws/) <small>(Web App Messaging Protocol)</small>
+* XMPP ([various](http://xmpp.org/xmpp-protocols/rfcs/))
+* Proprietary
+]
+
+---
+
 class: trans-h
 background-image: url(./img/internet-http-es-ws-msg-pubsub-rmi-ds.png)
 
@@ -826,26 +857,6 @@ class: bg-white
 
 background-image: url(https://docs.google.com/drawings/d/1mPgTs6fgL6R9-JkCxghNG2x4Jg-0m10oK09KUpO8pHY/pub?w=960&h=720)
 class: bg-white
-
----
-
-## What Protocol Should You Choose?
-
-.left[
-* [Bayeux](http://svn.cometd.org/trunk/bayeux/bayeux.html)
-* [DDP](https://www.meteor.com/ddp)
-* [dNode](https://github.com/substack/dnode-protocol)
-* [EPCP](https://fanout.io/docs/protocols.html#extensible-pubsub-control-protocol-epcp)
-* [GRIP](https://fanout.io/docs/protocols.html#generic-realtime-intermediary-protocol-grip)
-]
-.right[
-* [MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)
-* [Pusher Protocol](https://pusher.com/docs/pusher_protocol)
-* [STOMP](https://stomp.github.io/stomp-specification-1.2.html)
-* [WAMP](http://wamp.ws/) <small>(Web App Messaging Protocol)</small>
-* XMPP ([various](http://xmpp.org/xmpp-protocols/rfcs/))
-* Proprietary
-]
 
 ---
 
@@ -1002,19 +1013,50 @@ class: bg-pink
 
 ---
 
-class: fixed-width-list
+class: fixed-width-list top
 
 ## Use a service/library abstraction
 
-* Angular Services
-* Ember Services
-* Write your own
+* Angular/Ember/your own Services
+
+```js
+var myModule = angular.module('myModule', []);
+
+myModule.factory('pusher', function() {
+  var pusher = new Pusher('YOUR_APP_KEY');
+  return pusher;
+});
+```
 
 ---
 
-## Write your own fake service implementations
+class: fixed-width-list top
 
-**TODO: example**
+## Use a service/library abstraction
+
+* Angular/Ember/your own Services
+
+```js
+var myModule = angular.module('myModule', []);
+
+// myModule.factory('pusher', function() {
+//   var pusher = new Pusher('YOUR_APP_KEY');
+//   return pusher;
+// });
+
+myModule.factory('pusher', function() {
+  var pusher = new FakePusher();
+  return pusher;
+});
+```
+
+---
+
+class: trans-h bottom
+
+<h2 style="z-index: 100">Fake services/stubs</h2>
+
+<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="./examples/twitter-viewer/workbench.html"></iframe>
 
 ---
 
