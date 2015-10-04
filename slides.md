@@ -871,7 +871,7 @@ class: bg-white
 template: pink
 class: top
 
-### <span class="tip-label"></span> Choose the Right real-time framework for the functionality you want to build...
+### <span class="tip-label"></span> Choose the right real-time framework for the **functionality you want to build** and the **client devices you're targeting**...
 --
 
 .left[
@@ -1003,7 +1003,7 @@ class: fixed-width-list
 
 * Data Sources - you can't control the data
 * Data considerations: processing, payload, update frequency
-* Connectivity - SSL, transports & protocols
+* Connectivity - Online/Offline, SSL, transports & protocols
 * Monitoring client performance
 
 ---
