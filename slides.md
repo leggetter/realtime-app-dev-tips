@@ -1,5 +1,4 @@
 name: dblue
-
 class: bg-dark-blue, center, middle
 layout: true
 
@@ -7,8 +6,16 @@ layout: true
 
 ---
 
-name: green
+name: pink
+layout: true
 
+class: bg-pink, center, middle
+
+<span class="twitter_id">@leggetter</span>
+
+---
+
+name: green
 class: green-template, center, middle
 layout: true
 
@@ -18,7 +25,6 @@ layout: true
 
 name: lblue
 layout: true
-
 class: bg-light, center, middle
 
 <span class="twitter_id">@leggetter</span>
@@ -27,9 +33,7 @@ class: bg-light, center, middle
 
 name: white
 layout: true
-
 class: bg-white, center, middle, black-text
-layout: true
 
 <span class="twitter_id">@leggetter</span>
 
@@ -187,7 +191,8 @@ class: trans-h bottom bg-cover
 
 ---
 
-class: bg-pink, top
+template: pink
+class: top
 
 # <span class="tip-label"></span> Users expect a real-time UX
 
@@ -229,7 +234,8 @@ class: h1-big
 
 ---
 
-class: fixed-width-list bg-pink top
+template: pink
+class: fixed-width-list top
 
 ## <span class="tip-label"></span> You Have Real-Time Data
 
@@ -238,9 +244,9 @@ class: fixed-width-list bg-pink top
 Any event in your web stack...
 
 * Incoming Data
+* Data Changes
 * System Interactions
 * User Interactions
-* Data Changes
 
 ... represents real-time data.
 
@@ -302,7 +308,8 @@ Now that we've truely set the scene, let's make our way through the components i
 
 ---
 
-class: bg-pink tip top h1-big
+template: pink
+class: tip top h1-big
 
 # Before we begin...
 --
@@ -557,7 +564,7 @@ We could do with simpler capture/replay tools
 
 ---
 
-class: bg-pink
+template: pink
 
 ## <span class="tip-label"></span> **The server is your real-time data work-horse**. It should still do the vast majority of data processing and decision making. Web, Mobile an IoT clients are great, but they're not processing machines.
 
@@ -599,7 +606,7 @@ Here's what a standard tweet JSON looks like. Do I really want to send all this 
 
 ---
 
-class: bg-pink
+template: pink
 
 ## <span class="tip-label"></span> Only send the data that is required
 
@@ -742,7 +749,8 @@ background-image: url(https://docs.google.com/drawings/d/1k_7-4yTvs-cb6slQXvzgBw
 
 ---
 
-class: fixed-width-list bg-pink
+template: pink
+class: fixed-width-list
 
 ## <span class="tip-label"></span> You need to know what's going on in your real-time framework
 
@@ -860,25 +868,34 @@ class: bg-white
 
 ---
 
-class: bg-pink top
+template: pink
+class: top
 
 ### <span class="tip-label"></span> Choose the Right real-time framework for the functionality you want to build...
 --
 
-<a href="https://www.youtube.com/watch?v=VENVNimklWg"><img src="./img/fowa-choosing-realtime.png" width="80%" /></a>
+.left[
+<a href="https://www.youtube.com/watch?v=VENVNimklWg"><img src="./img/fowa-choosing-realtime.png" width="100%" /></a>
+<h4>FOWA 2013</h4>
+]
+.right[
+<a href="https://www.youtube.com/watch?v=PUENh1Ym9E4"><img src="./img/10min-guide-realtime.png" width="100%" /></a>
+<h4>ForwardJS 2 - 2015</h4>
+]
 
 ---
 
-class: top
+class: top long
 
 ## Soon you won't be able to go to the bathroom<small><sup>†</sup></small> without SSL. 
+
+<small><sup>†</sup> erm, I mean use HTTP/2, ServiceWorker, Fullscreen and many more web features</small>
+
 --
 
 class: bg-pink
 
 ##<span class="tip-label"></span> **Use SSL all the time** - <span class="underline">including in development</span>.
-
-<small><sup>†</sup> erm, I mean use HTTP/2 or ServiceWorker or any future web tech</small>
 
 --
 
@@ -921,7 +938,7 @@ class: fixed-width-list top
 
 ---
 
-class: bg-pink
+template: pink
 
 ## <span class="tip-label"></span> **Monitor Client Performance** - if you know how the client is coping, you can make adjustments.
 
@@ -1007,7 +1024,7 @@ No!
 
 ---
 
-class: bg-pink
+template: pink
 
 ## <span class="tip-label"></span> **Use a service/library abstraction** or stub. Mock out **data** (messages) & **connectivity** events.
 
@@ -1079,34 +1096,23 @@ class: fixed-width-list
 
 ## Browser Developer Tools are Great!
 
-* Performance Monitoring
-* UI rendering
-* Look at these Resources
-* Follow these people
+Performance Monitoring / UI rendering
+
+* [Advanced Performance Audits With Chrome DevTools](http://www.paulirish.com/2015/advanced-performance-audits-with-devtools/) - [@paul_irish](https://twitter.com/paul_irish)
+* [Chrome Rendering Performance](https://developers.google.com/web/fundamentals/performance/rendering/index?hl=en) - [@aerotwist](https://twitter.com/aerotwist)
+* [MSEdge Dev Tools - Performance](https://dev.modern.ie/platform/documentation/f12-devtools-guide/performance/)
+* [Firefox Dev Tools - Performance](https://developer.mozilla.org/en-US/docs/Tools/Performance)
+* [High Performance Browser Networking](http://chimera.labs.oreilly.com/books/1230000000545) - [@igrigorik](https://twitter.com/igrigorik)
 
 ---
 
-class: fixed-width-list bg-pink
+template: pink
+class: fixed-width-list top
+background-image: url(https://docs.google.com/drawings/d/1a-lXfKQ-3wbXMAIxgIEVIVW10jvV4RIQnAe19jnqtk4/pub?w=1195&h=721)
 
-## You've done the hard work!
-
-* Data:
-  * Small payloads
-  * Minimal processing
-  * Easy to fake
-* Connectivity:
-  * Handled for you by the real-time framework
-  * Easy to fake
-
-## You can focus on the **Real-Time UX**
-
----
-
-class: fixed-width-list
-
-# Resources
-
-* [Real-time Tech Guide](http://j.mp/realtime-tech-guide)
+.left[
+### With these **14 Tools, Tips & Techniques** you can focus on the<br />**Real-Time UX**
+]
 
 ---
 

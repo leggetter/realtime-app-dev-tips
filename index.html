@@ -108,7 +108,7 @@
       }
       
       .bg-pink {
-        background: #f4065f !important;
+        background-color: #f4065f !important;
         color: white !important;
       }
       
@@ -247,18 +247,17 @@
       }
       
       function checkForVideoToPlay(slide, slideEl) {
-        var playVideo = slide.properties.play_video;
-        if(playVideo !== undefined) {
+        var playVideoSelector = slide.properties.play_video;
+        if(playVideoSelector !== undefined) {
           var vidEl;
-          if(playVideo) {
-            vidEl = document.querySelector(playVideo);
+          if(playVideoSelector) {
+            vidEl = document.querySelector(playVideoSelector);
           }
           else {
             vidEl = slideEl.querySelector('video');
           }
           if(vidEl.getAttribute('playing') !== 'true') {
-            vidEl.play();
-            vidEl.getAttribute('playing', 'true');
+            playVideo(vidEl);
           }
         }
       }
@@ -266,7 +265,7 @@
       function checkForVideoToReset(slide, slideEl) {
         var vidEl = slideEl.querySelector('video');
         if(vidEl) {
-          vidEl.pause();
+          pauseVideo(vidEl);
           vidEl.currentTime = 0;
         }
       }
@@ -325,6 +324,28 @@
           tipEl.innerHTML = 'Tip #' + tipCount;
         }
       });
+      
+      document.body.addEventListener('click', function(ev) {
+        var clickedEl = ev.target;
+        if(clickedEl && clickedEl.tagName.toLowerCase() === 'video') {
+          if(clickedEl.getAttribute('playing') === 'true') {
+            pauseVideo(clickedEl);
+          }
+          else {
+            playVideo(clickedEl);
+          }
+        }
+      });
+      
+      function playVideo(el) {
+        el.play();
+        el.setAttribute('playing', 'true');
+      }
+      
+      function pauseVideo(el) {
+        el.pause();
+        el.setAttribute('playing', 'false');
+      }
     </script>
 
   </body>
