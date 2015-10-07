@@ -52,9 +52,13 @@ class: title
 
 ---
 
-template: lblue
-class: bg-contain circles
-background-image: url(./img/pusher-circles.png)
+class: bg-contain
+background-image: url(./img/trader2.png)
+
+---
+
+class: bg-contain
+background-image: url(./img/pusher-white-cloud.png)
 
 ---
 
@@ -314,7 +318,7 @@ class: tip top h1-big
 # Before we begin...
 --
 
-## <span class="tip-label"></span> When designing & building real-time apps, **always think** about **how** the **decisions** you're making - **anywhere** in your stack - will **impact** the **client app**.
+## <span class="tip-label"></span> When designing & building real-time apps, **always think** about **how** the **decisions** you're making - **anywhere** in your stack - will **impact the client app**.
 
 ???
 
@@ -848,7 +852,7 @@ background-image: url(./img/internet-http-es-ws.png)
 ---
 
 class: trans-h
-background-image: url(./img/internet-http-es-ws-msg-pubsub-rmi-ds.png)
+background-image: url(https://docs.google.com/drawings/d/1378sTg1fKEzo4HVBW97JqU0RjJS6u7fsh1hGaCZR0PA/pub?w=960&h=720)
 
 <h3 style="position: absolute; top: 0; left: 0; width: 100%; padding: 20px 0;">Use the right real-time comms pattern for your app</h3>
 
@@ -1012,9 +1016,13 @@ class: fixed-width-list
 
 ---
 
-**TODO: picture of Ben's FOWA London 2015 talk**
+class: bg-video, bg-cover, trans-h, em-text, top
 
-How did Ben build this?
+## How did Ben build this?
+
+<video id="video" autoplay="true" loop="true">
+  <source src="./img/ben-fowa.mp4" type="video/mp4">
+</video>
 
 ???
 
